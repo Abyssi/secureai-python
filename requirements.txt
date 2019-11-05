@@ -10,3 +10,5 @@ IPython
 jupyter
 
 matplotlib
+
+PyYAML
