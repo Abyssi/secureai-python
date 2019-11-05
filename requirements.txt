@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+
+keras
+tensorflow
+#tensorflow-gpu
+
+IPython
+jupyter
+
+matplotlib
