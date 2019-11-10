@@ -3,8 +3,8 @@ numpy
 scikit-learn
 
 keras
-#tensorflow
-tensorflow-gpu
+tensorflow
+#tensorflow-gpu
 #CUDA 10.0: before everything install https://developer.nvidia.com/cuda-10.0-download-archiv
 
 IPython
