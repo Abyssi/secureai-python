@@ -3,7 +3,7 @@ numpy
 scikit-learn
 
 keras
-tensorflow
+tensorflow==2.0.0-b1
 #tensorflow-gpu
 #CUDA 10.0: before everything install https://developer.nvidia.com/cuda-10.0-download-archiv
 
@@ -13,3 +13,6 @@ jupyter
 matplotlib
 
 PyYAML
+
+gym
+keras-rl2
