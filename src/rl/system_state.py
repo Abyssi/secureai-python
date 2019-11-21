@@ -1,30 +1,37 @@
+import random
+
 import numpy as np
 
+from rl.abs.discrete_state import DiscreteState
+from rl.system_observation_space import NodeState
 
-class SystemState:
 
-    def __init__(self, shape):
-        self.state = np.zeros(shape)
+class SystemState(DiscreteState):
 
-    def __getitem__(self, indices):
-        return self.state[indices]
-
-    def __setitem__(self, indices, value):
-        self.state[indices] = value
+    def __init__(self, topology):
+        super().__init__([topology.nodes.size(), len(list(NodeState))])
 
     def reset(self):
-        self.state = np.zeros(self.state.shape)
+        super().reset()
 
-    def to_array(self):
-        return self.state.ravel()
+        for i in range(0, self.size()):
+            self[i, NodeState.active] = random.random < 0.7
+            self[i, NodeState.updated] = random.random < 0.5
+            self[i, NodeState.corrupted] = random.random > 0.6
+            self[i, NodeState.vulnerable] = random.random > 0.7
 
-    def to_int(self):
-        self.to_base_10(self.state.ravel(), 2)
+    def worst(self):
+        super().reset()
 
-    @staticmethod
-    def to_base_10(values, base):
-        num = 0
-        power = 1
-        for i in reversed(range(0, len(values))):
-            num += values[i] * power
-            power *= base
+        for i in range(0, self.size()):
+            self[i, NodeState.active] = False
+            self[i, NodeState.updated] = False
+            self[i, NodeState.corrupted] = True
+            self[i, NodeState.vulnerable] = True
+
+    def __setitem__(self, indices, value):
+        super().__setitem__(indices, 1 if value else 0)
+        return self
+
+    def size(self):
+        return self.state.shape[0] #nodes count
