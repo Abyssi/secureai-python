@@ -1,9 +1,8 @@
 import random
 
-import numpy as np
+from rl.system_observation_space import NodeState
 
 from rl.abs.discrete_state import DiscreteState
-from rl.system_observation_space import NodeState
 
 
 class SystemState(DiscreteState):
@@ -34,4 +33,4 @@ class SystemState(DiscreteState):
         return self
 
     def size(self):
-        return self.state.shape[0] #nodes count
+        return self.state.shape[0]  # nodes count

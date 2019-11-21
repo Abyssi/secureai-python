@@ -1,7 +1,7 @@
 import numpy as np
 import gym
 import tensorflow as tf
-tf.compat.v1.disable_eager_execution()
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Activation, Flatten
 from tensorflow.keras.optimizers import Adam
@@ -9,6 +9,8 @@ from tensorflow.keras.optimizers import Adam
 from rl.agents.dqn import DQNAgent
 from rl.policy import BoltzmannQPolicy
 from rl.memory import SequentialMemory
+
+tf.compat.v1.disable_eager_execution()
 
 
 ENV_NAME = 'CartPole-v0'
