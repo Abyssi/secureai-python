@@ -21,5 +21,10 @@ class SystemState:
     def to_int(self):
         self.to_base_10(self.state.ravel(), 2)
 
-    def to_base_10(self, values, base):
+    @staticmethod
+    def to_base_10(values, base):
         num = 0
+        power = 1
+        for i in reversed(range(0, len(values))):
+            num += values[i] * power
+            power *= base
